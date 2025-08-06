@@ -1,3 +1,4 @@
+"use client";
 import { RecruiterSidebar } from "@/components/recruiters/sidebar";
 
 export default function RecruitersLayout({

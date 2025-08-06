@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Home, Sun, Moon } from "lucide-react";
+import { Home, Sun, Moon, Briefcase } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -17,8 +17,10 @@ export function FloatingNav() {
         // Apply theme to document
         if (isDark) {
             document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
+            document.body.classList.remove('dark');
         }
     }, [isDark]);
 
@@ -36,10 +38,21 @@ export function FloatingNav() {
             <Link href="/">
                 <Button
                     size="icon"
-                    className="h-12 w-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                    className="h-12 w-12 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
                     title="Home"
                 >
                     <Home className="h-5 w-5" />
+                </Button>
+            </Link>
+
+            {/* Jobs Button */}
+            <Link href="/jobs">
+                <Button
+                    size="icon"
+                    className="h-12 w-12 rounded-full bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                    title="Browse Jobs"
+                >
+                    <Briefcase className="h-5 w-5" />
                 </Button>
             </Link>
 
@@ -47,7 +60,7 @@ export function FloatingNav() {
             <Button
                 size="icon"
                 onClick={toggleTheme}
-                className="h-12 w-12 rounded-full bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                className="h-12 w-12 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
                 title="Toggle Theme"
             >
                 {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -56,7 +69,7 @@ export function FloatingNav() {
             {/* Settings/Menu Button */}
             <Button
                 size="icon"
-                className="h-12 w-12 rounded-full bg-gray-600 hover:bg-gray-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                className="h-12 w-12 rounded-full bg-muted hover:bg-muted/90 text-muted-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
                 title="Menu"
             >
                 <svg

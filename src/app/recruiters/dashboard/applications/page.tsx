@@ -1,3 +1,4 @@
+'use client';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Search, Filter, FileText } from "lucide-react";

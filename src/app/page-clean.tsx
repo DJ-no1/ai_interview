@@ -1,0 +1,135 @@
+'use client';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Zap, Brain, Users, Clock, ArrowRight } from "lucide-react";
+
+const features = [
+    {
+        icon: Brain,
+        title: "AI-Powered Matching",
+        description: "Match candidates with perfect job opportunities using advanced algorithms."
+    },
+    {
+        icon: Zap,
+        title: "Instant Screening",
+        description: "Automated resume analysis saves hours of manual review time."
+    },
+    {
+        icon: Users,
+        title: "Smart Interviews",
+        description: "AI-driven interviews provide deeper candidate insights."
+    }
+];
+
+export default function Home() {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800">
+            {/* Navigation */}
+            <nav className="border-b border-gray-800 bg-black/20 backdrop-blur-md sticky top-0 z-50">
+                <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                    <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                            <Zap className="w-6 h-6 text-white" />
+                        </div>
+                        <span className="text-2xl font-bold text-white">OpenHire</span>
+                        <Badge variant="secondary" className="bg-blue-600/20 text-blue-300 border-blue-500/30">
+                            AI-Powered
+                        </Badge>
+                    </div>
+                    <div className="flex space-x-4">
+                        <Link href="/login/candidate">
+                            <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-white/10">
+                                Candidate Login
+                            </Button>
+                        </Link>
+                        <Link href="/login/recruiter">
+                            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                                Recruiter Login
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Hero Section */}
+            <section className="container mx-auto px-4 py-20 text-center">
+                <div className="text-white mb-16">
+                    <h1 className="text-6xl font-bold mb-8 leading-tight">
+                        Revolutionize Hiring with{" "}
+                        <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                            AI Intelligence
+                        </span>
+                    </h1>
+                    <p className="text-xl mb-12 text-gray-300 max-w-3xl mx-auto">
+                        Transform your recruitment process with cutting-edge AI technology.
+                        Match perfect candidates with ideal opportunities in minutes, not weeks.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                        <Link href="/register/recruiter">
+                            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 text-lg">
+                                Start Recruiting
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Button>
+                        </Link>
+                        <Link href="/register/candidate">
+                            <Button variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:text-white hover:border-gray-400 hover:bg-white/10 px-10 py-4 text-lg">
+                                Find Your Dream Job
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Features Section */}
+            <section className="container mx-auto px-4 py-16">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold text-white mb-4">Why Choose OpenHire?</h2>
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                        Our AI-driven platform streamlines every step of the hiring process
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    {features.map((feature, index) => (
+                        <Card key={index} className="bg-white/5 border-gray-800 backdrop-blur-sm hover:bg-white/10 transition-all">
+                            <CardContent className="p-8 text-center">
+                                <feature.icon className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+                                <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
+                                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="container mx-auto px-4 py-16">
+                <div className="text-center bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12 border border-gray-700">
+                    <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Hiring?</h2>
+                    <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                        Join thousands of companies using OpenHire to find perfect candidates efficiently.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/register/recruiter">
+                            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+                                Get Started Free
+                            </Button>
+                        </Link>
+                        <Link href="/login/recruiter">
+                            <Button variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:text-white hover:border-gray-400 px-8 py-3">
+                                Login as Recruiter
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="container mx-auto px-4 py-8 text-center text-gray-500 border-t border-gray-800">
+                <p>&copy; 2025 OpenHire. All rights reserved.</p>
+            </footer>
+        </div>
+    );
+}
